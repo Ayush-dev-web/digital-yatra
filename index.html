@@ -1,76 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0%;
+            margin: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        .maindiv {
+            height: 60px;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+            display: flex;
+            /* overflow-x: hidden; */
+        }
+
+        img {
+            height: 80px;
+            width: 200px;
+        }
+
+
+        .logo {
+            height: 60px;
+            width: 20%;
+            /* background-color: bisque; */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .menubtn {
+            display: none;
+        }
+
+        .line {
+            height: 60px;
+            width: 60%;
+
+            /* background-color: gray; */
+
+        }
+
+        .navlinks {
+            height: 60px;
+            display: flex;
+            font-weight: bold;
+            font-size: 15px;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            list-style: none;
+
+        }
+
+
+        .profile {
+            height: 60px;
+            width: 20%;
+
+        }
+
+        .navlinks {
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .main-div {
+            height: 70vh;
+            width: 100%;
+            background-color: black;
+            position: relative;
+            background-image: url('https://media.licdn.com/dms/image/D5612AQFAyw3JH3THUg/article-cover_image-shrink_600_2000/0/1706631607096?e=2147483647&v=beta&t=xvF04G6YdZ8nYVN5TxdcWGiHRDbzUOAuxwlQ2rEHsHw');
+            background-repeat: no-repeat;
+            background-position: 48% 48%;
+            background-size: cover;
+        }
+
+        .outer-box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            top: 77px;
+            right: -41%;
+            z-index: 4;
+            display: none;
+            transition: all .5s ease-in;
+
+        }
+
+        .showMenu {
+            right: 5%;
+        }
+
+
+        @media (max-width:768px) {
+            .outer-box {
+
+                display: block;
+            }
+
+            .navlinks {
+                display: none;
+            }
+
+            .menubtn {
+                display: block;
+                margin: auto 20px;
+            }
+
+        }
+    </style>
 </head>
-<style>
-    *{
-        padding: 0%;
-        margin: 0;
-        box-sizing: border-box;
 
-    }
-   
-    .maindiv{
-        height: 60px;
-        width: 100%;
-        background-color: beige;
-        position: relative;
-        display: flex;
-    }
-    .logo{
-        height: 60px;
-        width: 20%;
-        background-color: bisque;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-    .line{
-        height: 60px;
-        width: 60%;
-        background-color: gray;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .profile{
-        height:60px;
-        width:20%;
-
-    }
-    .main-div{
-        height:70vh;
-        width: 100%;
-        background-color: black;
-        position:relative;
-        background-image: url('https://media.licdn.com/dms/image/D5612AQFAyw3JH3THUg/article-cover_image-shrink_600_2000/0/1706631607096?e=2147483647&v=beta&t=xvF04G6YdZ8nYVN5TxdcWGiHRDbzUOAuxwlQ2rEHsHw');
-background-repeat: no-repeat;
- background-position: 48% 48%;
- background-size: cover;
-    }
-
-</style>
 <body>
+
+
+
+
+
     <div class="maindiv">
         <div class="logo">
-           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBUxp70gKpdSandXYWPutMfNKKpiLT8lTHA&s" alt="">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBUxp70gKpdSandXYWPutMfNKKpiLT8lTHA&s"
+                alt="">
         </div>
         <div class="line">
-            <ul>
+            <ul class="navlinks">
                 <li>Home</li>
                 <li>About Us</li>
+                <li>Blog</li>
                 <li>Contact Us</li>
+                <li>Service</li>
+            </ul>
+        </div>
+        <div class="profile">
+            <ul class="navlinks">
+                <li>Profile</li>
                 <li>Settings</li>
             </ul>
         </div>
-        <div class="profile"></div>
+
+        <div class="menubtn" onclick="openmenu()">
+            <i id="icon" class="fa-solid fa-bars"></i>
+            <!-- <i class="fa-solid fa-xmark"></i> -->
+        </div>
+
+        <div class="outer-box"></div>
+
+
+
+        <div class="menuob" id="mobmenu">
+
+        </div>
     </div>
     <div class="main-div">
 
     </div>
+    <script>
+
+        // document.write('Hell World')
+        console.log("Im out Function 1")
+
+        // outer-box
+        function openmenu(num) {
+            // console.log("Im in Function ", num)
+            document.querySelector('.outer-box').classList.toggle('showMenu')
+            document.querySelector('#icon').classList.toggle('fa-xmark')
+
+            console.log(document.querySelector('h1'))
+            // document.write('Hell World 2')
+        }
+
+
+
+
+
+
+
+
+
+        // let mobmenu = document.getElementById('mobmenu')
+        // function openmenu(){
+        //     console.log("ok",mobmenu)
+        // }
+    </script>
 </body>
+
 </html>
